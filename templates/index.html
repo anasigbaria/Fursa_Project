@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>currency conventer</title>
+    <style>
+        h1 {text-align: center;}
+    </style>
+</head>
+<body>
+<h1>BEST CURRENCY CONVENTER</h1>
+
+<form  action="/action_page.php">
+    <b><label for="amount">amount:</label></b>
+    <input type="text" id="amount" name="amount">
+    <select name= cfrom method="GET" action="/">
+        {% for cf in cfrom %}
+        <option value= "{{cf}}" SELECTED>{{ cf }}</option>"
+        {% endfor %}
+    </select>
+</form>
+
+
+<p></p>
+<b>currency</b>
+<select name= cto method="GET" action="/">
+    {% for ct in cto %}
+    <option value= "{{ct}}" SELECTED>{{ ct }}</option>"
+    {% endfor %}
+</select>
+<p></p>
+<form action="/action_page.php"></form>
+    <input type="submit" value="convert ">
+</form>
+<p></p>
+<form  action="/action_page.php">
+    <b><label for="Result">Result:</label></b>
+    <input type="text" id="result" name="result">
+
+</form>
+
+</select>
+</body>
+</html>
