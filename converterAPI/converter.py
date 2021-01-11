@@ -1,4 +1,5 @@
 from flask import Flask
+import sys
 import requests, json
 
 api_key = "c652aad8624cf514f2e3"
@@ -20,17 +21,20 @@ def convert(amount,fr,to):
 
      response = requests.get(complete_url) 
      x = response.json() 
-
-     result= amount*float(x["results"][fr+"_"+to]["val"])
+     result= float(amount)*float(x["results"][fr+"_"+to]["val"])
      return result
 
+    
+def main(argv):
+    if argv[0]=="convert":
+        return (convert(argv[1],argv[2],argv[3]))
+    else:
+        return currList()
 
-
-def main():
-     print(convert(1,"USD","TZS"))
+     
     
 
 
 if __name__ == "__main__":
     # execute only if run as a script
-    main()
+    main(sys.argv[1:])
